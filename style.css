@@ -1,0 +1,262 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* max-height: 100vh;
+  min-width: 100vw; */
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.container {
+  background-color: #201e1b;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  background-size: 800% 800%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(68deg, #3d3f41 6%, #384a51, #564646, #4b4d2e);
+  background-position: 0%;
+  /*Used all the animation properties instead of a simple "animation" only for JS*/
+  animation-name: animateLinearBackground;
+  animation-duration: 17s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+@keyframes animateLinearBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  12.5% {
+    background-position: 25% 50%;
+  }
+
+  25% {
+    background-position: 100% 100%;
+  }
+
+  37.5% {
+    background-position: 50% 100%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  62.5% {
+    background-position: 50% 0%;
+  }
+
+  75% {
+    background-position: 25% 50%;
+  }
+
+  87.5% {
+    background-position: 0% 25%;
+  }
+
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
+.container__mp3-player {
+  background-image: linear-gradient(180deg, rgb(25, 26, 27) 0%, rgba(32, 35, 38, 0.4));
+  height: 596px;
+  width: 350px;
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+}
+
+.container__thumbnail-image {
+  width: 310px;
+  height: 280px;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.452);
+}
+
+.container__thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px 30px 0 0;
+  margin-bottom: 30px;
+}
+
+.container__thumbnail-image {
+  margin-top: 20px;
+}
+
+
+.container__music-title {
+  color: white
+}
+
+.container__music-artist {
+  color: #5b6568
+}
+
+.container__music-other {
+  color: #d2d2d2;
+  font-size: 14px;
+}
+
+button>img {
+  width: 15px;
+  height: 15px;
+  color: black;
+  background-color: transparent;
+}
+
+button {
+  width: 35px;
+  height: 35px;
+  border: none;
+  position: relative;
+  background-color: transparent;
+
+}
+
+.container__music-infos, .container__audio {
+  margin: 0 50px;
+}
+
+.container__music-title-other {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.container__mp3-player-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__audio-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 37px;
+  color: #5b6568;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.container__audio-length>* {
+  font-variant-numeric: tabular-nums;
+}
+
+
+.container__play-button {
+  background-image: linear-gradient(90deg, #81f5f7, #acfbfd);
+  border-radius: 100vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+}
+
+.container__play-button:hover {
+  background-image: linear-gradient(90deg, #64c1c3, #88d1d2);
+  cursor: pointer;
+}
+
+.container__play-button>* {
+  color: black;
+}
+
+.container__shuffle-button {
+  position: absolute;
+  left: -55px;
+  top: 22px;
+  height: 18px;
+  width: 18px;
+}
+
+.container__next-button {
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.container__previous-button {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.container__next-button>*:hover, .container__previous-button>*:hover {
+  color: lightgrey;
+  cursor: pointer;
+
+}
+
+.container__shuffle-button>* {
+  color: #5b6568;
+}
+
+.container__shuffle-button:hover>* {
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.container__main-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  position: relative;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+i {
+  color: white;
+  font-size: 18px;
+}
+
+.container__audio-progress-bar {
+  height: 5px;
+  background-color: #727377;
+  width: 100%;
+  margin-top: 37px;
+  border-radius: 100vmax;
+}
+
+.container__audio-progress-bar-current-time {
+  height: 5px;
+  border-radius: 100vmax;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-image: linear-gradient(90deg, #4a8ea3, #6dd6ef);
+  cursor: grab;
+}
+
+.container__audio-progress-bar:hover {
+  cursor: grab;
+}
+
+.container__audio-progress-bar:active {
+  cursor: grabbing;
+}

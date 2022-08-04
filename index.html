@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Title -->
+  <title>Customized audio player</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/904e9ee361.js" crossorigin="anonymous"></script>
+
+  <!-- Page logo -->
+  <link rel="icon" href="./ressources/icons/music-icon.svg" type="image/gif">
+
+  <!-- JS -->
+  <script defer src="./script.js"></script>
+</head>
+
+<body>
+
+  <main class="container">
+    <div class="container__mp3-player">
+
+      <div class="container__thumbnail">
+        <img src="./ressources/thumbs/Dust.png" alt="" class="container__thumbnail-image">
+        <!-- 
+        <img src="./ressources/thumbs/Justice.png" alt="" class="container__thumbnail-image">
+        <img src="./ressources/thumbs/Windwaker.png" alt="" class="container__thumbnail-image">
+        <img src="./ressources/thumbs/Beauiful dead.png" alt="" class="container__thumbnail-image">
+
+         -->
+      </div>
+      <div class="container__music-infos">
+        <!--    Man I miss playing Hotline Miami      -->
+        <h2 class="container__music-title">Dust</h2>
+        <div class="container__music-title-other">
+          <p class="container__music-artist">M.O.O.N.</p>
+          <p class="container__music-other"><span class="container__music-current-music">1</span>/4</p>
+        </div>
+      </div>
+      <div class="container__audio">
+        <audio class="audio" src="./ressources/music/Dust.mp3">
+          <!-- <source src="./ressources/music/Dust.mp3" class="source" /> -->
+        </audio>
+        <div class="container__audio-controls">
+          <div class="container__audio-progress-bar">
+            <div class="container__audio-progress-bar-current-time"></div>
+          </div>
+          <div class="container__audio-length">
+            <p class="container__audio-current-time">00:00</p>
+            <p class="container__audio-total-time">-:--</p>
+          </div>
+        </div>
+      </div>
+      <div class="container__mp3-player-buttons">
+
+        <div class="container__main-buttons">
+          <button type="button" class="container__shuffle-button">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+          <button type="button" class="container__previous-button">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button type="button" class="container__play-button">
+            <i class="hide fa-solid fa-pause "></i>
+            <i class="show fa-solid fa-play"></i>
+          </button>
+          <button type="button" class="container__next-button">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
