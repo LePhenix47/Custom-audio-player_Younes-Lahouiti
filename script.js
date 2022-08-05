@@ -52,23 +52,12 @@ function fillTime() {
 }
 
 function formatTimeValues(currentTimeElement, totalTimeElement) {
+  if (isNaN(audio.duration)) {
+    totalTimeElement.textContent = "-:--";
+  }
+
   let currentMinutes = Math.trunc(audio.currentTime / 60);
   let currentSeconds = Math.trunc(audio.currentTime % 60);
-
-  // console.log(
-  //   musicsData[0].title,
-  //   "by",
-  //   musicsData[0].artist,
-  //   " currentTime = ",
-  //   audio.currentTime
-  // );
-  // console.log(
-  //   musicsData[0].title,
-  //   "by",
-  //   musicsData[0].artist,
-  //   " duration = ",
-  //   audio.duration
-  // );
 
   let totalMinutes = Math.trunc(audio.duration / 60);
   let totalSeconds = Math.trunc(audio.duration % 60);
@@ -86,12 +75,6 @@ function formatTimeValues(currentTimeElement, totalTimeElement) {
 
   if (totalSeconds < 10) {
     totalSeconds = `0${totalSeconds}`;
-  }
-
-  if (totalMinutes === NaN || totalSeconds === NaN) {
-    //To replace the NaN:NaN by -:--
-    totalMinutes = "-";
-    totalSeconds = "--";
   }
 
   currentTimeElement.textContent = `${currentMinutes}:${currentSeconds}`;
@@ -202,4 +185,41 @@ function changeAudioAndThumbnail({ title, artist }) {
 
   playMusicButtonIcon.classList.replace("hide", "show");
   pauseMusicButtonIcon.classList.replace("show", "hide");
+}
+
+//Part 5 (I forgor I had to code the shuffle button)
+
+const shuffleButton = document.querySelector(".container__shuffle-button");
+const shuffleIcon = document.querySelector(".container__shuffle-button > *");
+
+let newArrayOfSongs = [];
+
+shuffleButton.addEventListener("click", (e) => {
+  let isShuffleButtonActive = shuffleIcon.classList.contains("active")
+    ? true
+    : false;
+  console.log(isShuffleButtonActive);
+  if (isShuffleButtonActive) {
+    newArrayOfSongs = musicsData;
+  } else {
+    newArrayOfSongs = musicsData.filter((song) => {
+      return song.id !== currentMusicIndex;
+    });
+    console.table(newArrayOfSongs);
+    playShuffledSong();
+    return;
+  }
+});
+
+function playShuffledSong() {
+  let newMusic =
+    newArrayOfSongs[Math.trunc(Math.random() * newArrayOfSongs.length)];
+  const { title, artist, id } = newMusic;
+  currentMusicIndex = id;
+  console.log(title, artist, id);
+  let newMusicObject = {
+    title: title,
+    artist: artist,
+  };
+  changeAudioAndThumbnail(newMusicObject);
 }
